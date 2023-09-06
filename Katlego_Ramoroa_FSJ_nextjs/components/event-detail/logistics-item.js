@@ -13,4 +13,4 @@ function LogisticsItem(props) {
   );
 }
 
-export default LogisticsItem;
+export default LogisticsItem
