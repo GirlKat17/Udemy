@@ -5,6 +5,7 @@ import EventSummary from '../../components/event-detail/event-summary';
 import EventLogistics from '../../components/event-detail/event-logistics';
 import EventContent from '../../components/event-detail/event-content';
 import ErrorAlert from '../../components/ui/error-alert';
+import {useRouter} from "next/router"
 
 function EventDetailPage(props) {
   const event = props.selectedEvent;
@@ -41,7 +42,10 @@ function EventDetailPage(props) {
 }
 
 export async function getStaticProps(context) {
-  const eventId = context.params.eventId;
+  const router = useRouter()
+
+  const eventId = router.query.eventId
+  console.log(eventId)
 
   const event = await getEventById(eventId);
 
